@@ -10,9 +10,16 @@
     <p>这是一个测试网页</p>
 </body>
 <script>
-var xhr = new XMLHttpRequest();
-xhr.open('GET','http://localhost:8888/');
-xhr.send();
+    fetch('http://localhost:8888/', {
+        method: 'PUT',
+        headers: {
+            'X-Text-Cors': '123'
+        }
+    })
+
+// var xhr = new XMLHttpRequest();
+// xhr.open('GET','http://localhost:8888/');
+// xhr.send();
 </script>
 <!-- <script src="http://localhost:8888/"></script> -->
 </html>
