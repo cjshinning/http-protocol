@@ -20,11 +20,24 @@ http.createServer((request, response) => {
     }
 
     if(request.url === '/script.js'){
-        response.writeHead(200, {
-            'Content-Type': 'text/javascript',
-            'Cache-control': 'max-age=200'
-        })
-        response.end('console.log("script loaded loaded twice")');
+        const etag = request.headers['if-none-match'];
+        if(etag === '777'){
+            response.writeHead(304, {
+                'Content-Type': 'text/javascript',
+                'Cache-control': 'max-age=20000000, no-cache',
+                'last-modified': '123',
+                'Etag': '777'
+            })
+            response.end('');
+        }else{
+            response.writeHead(200, {
+                'Content-Type': 'text/javascript',
+                'Cache-control': 'max-age=20000000, no-store',
+                'last-modified': '123',
+                'Etag': '777'
+            })
+            response.end('console.log("script loaded loaded twice")');
+        }
     }
 }).listen(8888);
 
