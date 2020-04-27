@@ -5,7 +5,6 @@ http.createServer((request, response) => {
     console.log(`request come, ${request.url}`);
 
     const host = request.headers.host;
-    console.log(host);
 
     if(request.url === '/'){
         const html = fs.readFileSync('test.html', 'utf8');
