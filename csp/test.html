@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'self'; report-uri /report">
+    <title>test</title>
+</head>
+<body>
+    <p>This is content</p>
+    <form action="http:baidu.com">
+        <button type="submit">Click me</button>
+    </form>
+    <img src="https://iknow-pic.cdn.bcebos.com/f3d3572c11dfa9ec8872782c6ed0f703918fc1a8" width="300" height="500" alt="">
+    <script>
+        console.log('inline js');
+        fetch('http://baidu.com');
+    </script>
+    <script src="test.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+</body>
+</html>
