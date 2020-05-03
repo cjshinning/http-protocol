@@ -3,7 +3,7 @@ const fs = require('fs');
 const zlib = require('zlib');
 
 http.createServer((request, response) => {
-    console.log(`request come, ${request.url}`);
+    console.log(`request come, ${request.headers.host}`);
 
     const html = fs.readFileSync('test.html', 'utf8');
     response.writeHead(200, {
